@@ -1,4 +1,4 @@
-module gitlab.scusi.io/flow/epc
+module github.com/scusi.io/epc
 
 go 1.17
 
