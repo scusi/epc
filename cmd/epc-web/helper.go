@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
-	"gitlab.scusi.io/flow/epc"
+	"github.com/scusi/epc"
 	"log"
 	"net/http"
 	"net/url"

@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"gitlab.scusi.io/flow/epc"
+	"github.com/scusi/epc"
 	"log"
 )
 
