@@ -1,0 +1,33 @@
+version: "3"
+
+# docker-compose file for epc-web running behind a traefik reverse proxy
+
+services:
+  web:
+    image: 'epc-web:latest'
+    restart: always
+    hostname: 'epc.scusi.io'
+    ports:
+      - 88:80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      ## http (redirect only)
+      - "traefik.http.routers.epc.entrypoints=http"
+      - "traefik.http.routers.epc.rule=Host(`epc.scusi.io`)" 
+      - "traefik.http.middlewares.epc-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.epc.middlewares=epc-https-redirect"
+      ## https
+      - "traefik.http.routers.epc-secure.entrypoints=https"
+      - "traefik.http.routers.epc-secure.rule=Host(`epc.scusi.io`)" 
+      - "traefik.http.routers.epc-secure.tls=true"
+      - "traefik.http.routers.epc-secure.tls.certresolver=http"
+      - "traefik.http.routers.epc-secure.service=epc-secure"
+      - "traefik.http.services.epc-secure.loadbalancer.server.port=80"
+
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
