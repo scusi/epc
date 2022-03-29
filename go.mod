@@ -1,4 +1,4 @@
-module github.com/scusi.io/epc
+module github.com/scusi/epc
 
 go 1.17
 
