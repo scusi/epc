@@ -9,13 +9,13 @@ This is very handy for users of mobile banking apps, who can just scan the QR-Co
 ## download lib
 
 ```
-go get gitlab.scusi.io/flow/epc
+go get github.com/scusi/epc
 ```
 
 ### build lib
 
 ```
-cd $GOSRC/gitlab.scusi.io/flow/epc
+cd $GOSRC/github.com/scusi/epc
 go build ./
 ```
 
@@ -27,7 +27,7 @@ The following sections describe how to build and use these example programs.
 ### build example program
 
 ```
-cd $GOSRC/gitlab.scusi.io/flow/epc
+cd $GOSRC/github.com/scusi/epc
 go build ./cmd/epc-simple
 go build ./cmd/epc-parse
 ```
