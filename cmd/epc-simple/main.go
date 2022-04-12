@@ -35,13 +35,17 @@ func init() {
 
 func main() {
 	flag.Parse()
-	e := epc.NewWithBIC(
+	e, err := epc.NewWithBIC(
 		bic,
 		name,
 		iban,
 		subject,
 		ammount,
 	)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 	if debug {
 		log.Printf("%s", e)
 	}
